@@ -1,8 +1,12 @@
 ## 网络调用 API 的跨域访问解决方案
 
-**问题发生日期 ** 2017/07/26
+**问题发生日期** 
 
-**问题基本简述 ** 使用 https://www.btc123.com/api 访问接口数据时出现跨域问题
+2017/07/26
+
+**问题基本简述** 
+
+使用 https://www.btc123.com/api 访问接口数据时出现跨域问题
 
 **解决方案详细描述**
 
@@ -49,13 +53,13 @@ Chrome 报错提示为：`XMLHttpRequest cannot load https://www.btc123.com/api/
 | 6    | http://www.a.com/a.js  http://wwww.a.com/b.js | 主域名相同，子域名不同  | 不允许    |
 | 7    | http://www.a.com/a.js  http://www.b.com/b.js | 不同域名         | 不允许    |
 
-比如：http://www.a.com/index.html 请求 http://www.b.com/index.html的数据 
+比如：http://www.a.com/index.html 请求 http://www.b.com/index.html 的数据 
 
 ## **三、处理跨域的方法1 -- 代理**
 
 这种方式是通过后台(ASP、PHP、JAVA、ASP.NET)获取其他域名下的内容，然后再把获得内容返回到前端，这样因为在同一个域名下，所以就不会出现跨域的问题。
 
-比如在A（[www.a.com/sever.php](http://www.beijing.com/sever.php)）和B（[www.b.com/sever.php](http://www.shanghai.com/sever.php)）各有一个服务器，A的后端（[www.a.com/sever.php](http://www.beijing.com/sever.php)）直接访问B的服务，然后把获取的响应值返回给前端。也就是A的服务在后台做了一个代理，前端只需要访问A的服务器也就相当与访问了B的服务器。这种代理属于后台的技术，所以不展开叙述。
+比如在A（[www.a.com/sever.php](http://www.a.com/sever.php)）和B（[www.b.com/sever.php](http://www.b.com/sever.php)）各有一个服务器，A的后端（[www.a.com/sever.php](http://www.a.com/sever.php)）直接访问B的服务，然后把获取的响应值返回给前端。也就是A的服务在后台做了一个代理，前端只需要访问A的服务器也就相当与访问了B的服务器。这种代理属于后台的技术，所以不展开叙述。
 
 这个也是推荐大家使用的方法，因为很多时候我们外调第三方开放的接口都是没有接口后台处理权限的，在没有权限的情况下只能在本地通过动态语言来获取原接口数据，返回给前端调用，因为这里调用的 API 后端没有使用 JSONP ，所以只能自己在本地通过 PHP curl 去取接口数据返回给自己使用。我在本地写了一个 phpserver.php ，PHP 代码如下：
 
@@ -140,4 +144,5 @@ header( "Access-Control-Allow-Methods:POST,GET" );
 因為本次使用的接口屬於第三方提供的，所以沒有後端的控制權限，無法實現方法二中的 JSONP 和 方法三中提到的 XHR2 。
 
 **引用文章或网址，以提供更多细节或相关信息 **
+
 暫無
