@@ -1,6 +1,6 @@
 最近需要实现一个功能是在网站里做一个热门标签栏目，并在该页面显示热门标签的对应图片，效果见：
 
-![https://moidea.github.io/images/%E6%A0%B7%E5%BC%8F.jpg](样式)
+![样式](https://moidea.github.io/images/%E6%A0%B7%E5%BC%8F.jpg)
 
 首先想到的就是将 tag 命名的统一格式的图片放置在主题目录里，用 PHP 函数进行判断该图片是否存在来显示标签图片，不过该方法有以下几个问题：
 
